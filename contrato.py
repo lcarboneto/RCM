@@ -12,6 +12,6 @@ class Vendas(BaseModel):
     data: date
     hora: time
     produto:ProdutoEnum
-    qtt:PositiveFloat
-    valor:PositiveInt
+    qtt:PositiveInt
+    valor:PositiveFloat
 
