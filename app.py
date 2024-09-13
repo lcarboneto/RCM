@@ -1,5 +1,6 @@
 import streamlit as st
-import contrato
+from contrato import Vendas
+from pydantic import ValidationError
 
 def main():
     st.title('SISTEMA DE CRM INICIAL')
@@ -11,10 +12,22 @@ def main():
     valor = st.number_input('inserir o valor unitário', min_value=0.0)
     
     if st.button('Salvar'):
-        st.write('*** Dados da venda ***')
-        st.write(f'email do vendedor: {email}')
-        st.write(f'Data e Hora da Compra: {data} - {hora}')
-        st.write(f'Pedido: {qtt} de {produto} a BRL {valor:.2f} | Total de BRL {qtt*valor:.2f}')
+        try:
+            Vendas(
+                email = email, 
+                data = data, 
+                hora = hora, 
+                produto = produto, 
+                qtt = qtt, 
+                valor = valor)
+            st.write('*** Dados da venda ***')
+            st.write(f'email do vendedor: {email}')
+            st.write(f'Data e Hora da Compra: {data} - {hora}')
+            st.write(f'Pedido: {qtt} de {produto} a BRL {valor:.2f} | Total de BRL {qtt*valor:.2f}')
+
+        except ValidationError as e:
+            st.error(f'DEU ERRO! {e}')       
+
 
 
 if __name__ == "__main__":
