@@ -1,10 +1,10 @@
-from datetime import datetime, date, time
+from datetime import date, time
 from pydantic import BaseModel, EmailStr, PositiveFloat, PositiveInt
 from enum import Enum
 
 class ProdutoEnum(str, Enum):
     produto1 = 'abacaxi'
-    produto2 = 'banana'
+    produto2 = 'banana' 
     produto3 = 'caqui'
     produto4 = 'damasco'
 class Vendas(BaseModel):
