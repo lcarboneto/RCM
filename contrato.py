@@ -9,7 +9,7 @@ class ProdutoEnum(str, Enum):
     produto4 = 'damasco'
 class Vendas(BaseModel):
     email:EmailStr
-    data: date
+    dia: date
     hora: time
     produto:ProdutoEnum
     qtt:PositiveInt
