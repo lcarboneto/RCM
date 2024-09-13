@@ -4,6 +4,7 @@
 
 <p>Front end: Python Streamlit</p>
 <p>Validar os dados inseridos: Pydantic</p>
+<p>Publicar o Banco de Dados: Render</p>
 <p>Banco de dados: Postgrees</p>
 <p>Conectar Python com SQL: SQLAlchemy</p>
 <p>Documentação: MKDOCS</p>
