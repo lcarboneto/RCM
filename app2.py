@@ -1,5 +1,4 @@
 import streamlit as st
-from contrato import Vendas
 from pydantic import ValidationError
 from database import salvar_no_postgres
 
@@ -14,13 +13,7 @@ def main():
     
     if st.button('Salvar'):
         try:
-            venda = Vendas(
-                email = email, 
-                dia = dia, 
-                hora = hora, 
-                produto = produto, 
-                qtt = qtt, 
-                valor = valor)
+            venda = (email, dia, hora, produto, qtt, valor)
             st.write('*** Dados da venda ***')
             st.write(venda)            
             salvar_no_postgres(venda)
