@@ -17,7 +17,9 @@ def main():
             st.write('*** Dados da venda ***')
             st.write(venda)            
             salvar_no_postgres(venda)
-
+            
+        except ValidationError as e:
+            st.error(f'DEU ERRO! {e}')    
          
 
 
